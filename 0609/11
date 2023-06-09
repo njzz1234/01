@@ -88,17 +88,17 @@ post search -> 우편번호 찾기
 (작업조건)
 
 1. 텍스트 데이터의  일괄 입력이 가능하다.
-
+post import
 2. 학생 목록 조회가 가능하다.
-
+post search / empselect
 3. 학생정보의 개별입력이 가능하다.
-
+emp insert
 4. 학생정보의 개별변경이 가능하다.
-
+emp update
 5. 학생정보의 개별삭제가 가능하다. ( 학생정보 삭제 시 성적도 삭제 )
-
+emp delete
 6. 학생 성적조회가 가능하다.
-
+emp search
  
 
 (성적조회 출력예시)
