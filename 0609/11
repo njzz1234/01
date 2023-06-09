@@ -23,5 +23,4 @@ select e1.empno as empno
 post import -> csv를 테이블로 변환
 post export -> emp, post를 txt로변환
 
-post search 
-String sql = select a1||''||a2||''||a3||''||a4||''||
+post search -> 우편번호 찾기
