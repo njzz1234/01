@@ -1,0 +1,14 @@
+select e1.empno as empno
+, e1.ename as ename
+, e1.job as job
+, e2.ename as mgr_name -- 매니저이름
+, d.dname as dname
+, e1.hiredate as hiredate
+,(to_char(sysdate,'yyyy') - to_char(hiredate,'yyyy')) year
+ from 
+  emp e1, emp e2, dept d
+  where 
+   e1.mgr = e2.empno
+   and
+   e1.deptno = d.deptno
+   
