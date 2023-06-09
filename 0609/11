@@ -1,3 +1,6 @@
+post export ( EMP) 사원
+String sql = 
+
 select e1.empno as empno
 , e1.ename as ename
 , e1.job as job
@@ -19,3 +22,6 @@ select e1.empno as empno
 
 post import -> csv를 테이블로 변환
 post export -> emp, post를 txt로변환
+
+post search 
+String sql = select a1||''||a2||''||a3||''||a4||''||
