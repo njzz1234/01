@@ -1,5 +1,5 @@
-post export ( EMP) 사원
-String sql = 
+[ post export ( EMP 사원) ]
+   oracle sql  
 
 select e1.empno as empno
 , e1.ename as ename
@@ -15,8 +15,6 @@ select e1.empno as empno
    and
    e1.deptno = d.deptno
    
-
-
 
 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
