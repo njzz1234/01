@@ -100,6 +100,8 @@ emp delete
 6. 학생 성적조회가 가능하다.
 emp search
  
+ 
+이클립스 ide / sql 
 
 (성적조회 출력예시)
 
@@ -126,4 +128,5 @@ emp search
 
 >>전체
 번호 학생ID 이름 성별 생년월일
+
 
