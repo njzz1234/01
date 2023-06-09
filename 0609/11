@@ -4,7 +4,7 @@ select e1.empno as empno
 , e2.ename as mgr_name -- 매니저이름
 , d.dname as dname
 , e1.hiredate as hiredate
-,(to_char(sysdate,'yyyy') - to_char(hiredate,'yyyy')) year
+, (to_char(sysdate,'yyyy') - to_char(e1.hiredate,'yyyy')) as year1
  from 
   emp e1, emp e2, dept d
   where 
