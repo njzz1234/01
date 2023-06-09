@@ -12,3 +12,10 @@ select e1.empno as empno
    and
    e1.deptno = d.deptno
    
+
+
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+post import -> csv를 테이블로 변환
+post export -> emp, post를 txt로변환
