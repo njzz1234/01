@@ -139,8 +139,8 @@ select b.*,rownum 반등수 from
             + "                            where userid ='"+userid+"'";
 
 
-
-
+row_number()over (order by 평균 desc)
+rank()over (order by avg desc)
 
 
 
