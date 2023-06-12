@@ -55,16 +55,88 @@ post search -> 우편번호 찾기
 2. 성적조회
 3. 데이터임포트
 
+public static void scoreSearch() throws Exception{
+      Statement stmt = Connection().createStatement();
+      Scanner scn = new Scanner(System.in);
+      System.out.println("조회할 학생 아이디를 입력해주세요");
+      System.out.println("아이디>>");
+      String userid = scn.next();
+         //아이디검사
+         String sql = "select count(*) cnt from student_info where userid='"+userid+"'";
+         ResultSet rs1 = stmt.executeQuery(sql);
+         int cnt= 0;
+         if (rs1.next() ) {
+            cnt = rs1.getInt("cnt");
+         }else {
+            return;
+         }
+         if(cnt==0) {
+            System.out.println("조회할 학생아이디가 존재하지 않습니다.");
+            return;
+         }
+      System.out.println("학년>>");
+      int grade = scn.nextInt();
+      
+      System.out.println("학기>>");
+      int hakgi =scn.nextInt();
+      
+
+      String sql2 ="           select c.*from"
+            + "               (select b.*,rank()over (order by avg desc) classrank "
+            + "                from (select a.*,rank()over (order by avg desc) schoolrank "
+            + "                from(select i.userid userid,i.name name,i.school school,s.grade grade,s.hakgi hakgi,s.ban ban,round((s.eng+s.kor+s.math)/3) avg,eng,kor,math,(eng+kor+math) hap"
+            + "                    from student_info i,student_score s"
+            + "                    where i.userid=s.userid "
+            + "                            and s.grade='"+grade+"'"
+            + "                            and s.hakgi='"+hakgi+"'"
+            + "                            order by avg desc)a)b"
+            + "                            where ban = (select ban from student_score where userid='"+userid+"' and grade='"+grade+"' and hakgi='"+hakgi+"'))c"
+            + "                            where userid ='"+userid+"'";
+      ResultSet rs2 = stmt.executeQuery(sql2);
+      while(rs2.next()) {
+         String name =rs2.getString("name");
+         String school = rs2.getString("school");
+         String eng = rs2.getString("eng");
+         String kor = rs2.getString("kor");
+         String math =rs2.getString("math");
+         String hap = rs2.getString("hap");
+         String avg = rs2.getString("avg");
+         String classrank = rs2.getString("classrank");
+         String schoolrank = rs2.getString("schoolrank");
+         
+         System.out.println("[성적조회 결과]");
+         System.out.println("학생ID: "+userid);
+         System.out.println("학생명: "+name);
+         System.out.println("소속학교: "+school);
+         System.out.println("학년: "+grade+"학년");
+         System.out.println("학기: "+hakgi+"학기");
+         System.out.println("영어\s 국어\s 수학\s 합계\s 평균\s (반)석차\s (전교)석차");
+         System.out.println(eng+"\s   "+kor+"\s "+math+"\s  "+hap+"\s "+avg+"\s   ("+classrank+"/5)\s   ("+schoolrank+"/10)");
+      }
+   }
 
 
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+sql 내가햇던거
+select b.*,rownum 반등수 from
+(select a.*,rownum 전체등수 from ( select eng, kor, math,(eng+kor+math) as 합계 , (eng+kor+math)/3 as 평균, ban
+ from student_score s, student_info i
+ where s.userid=i.userid  order by 평균 desc ) a)b where ban='1' order by 평균 desc;
 
-
-
-
-
-
-
-
+답
+      String sql2 ="           select c.*from"
+            + "               (select b.*,rank()over (order by avg desc) classrank "
+            + "                from (select a.*,rank()over (order by avg desc) schoolrank "
+            + "                from(select i.userid userid,i.name name,i.school school,s.grade grade, "
+            + " s.hakgi hakgi,s.ban ban,round((s.eng+s.kor+s.math)/3) avg,eng,kor,math,(eng+kor+math) hap"
+            + "                    from student_info i,student_score s"
+            + "                    where i.userid=s.userid "
+            + "                            and s.grade='"+grade+"'"
+            + "                            and s.hakgi='"+hakgi+"'"
+            + "                            order by avg desc)a)b"
+            + "                            where ban = (select ban from student_score where userid='"+userid+"' "
+            + " and grade='"+grade+"' and hakgi='"+hakgi+"'))c"
+            + "                            where userid ='"+userid+"'";
 
 
 
