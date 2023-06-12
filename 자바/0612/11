@@ -79,3 +79,14 @@ insert into emp values( 7876, 'ADAMS', 'CLERK', 7788,'1988-03-05', 1100, null, 2
 insert into emp values( 7900, 'JAMES', 'CLERK', 7698, '1981-05-06', 950, null, 30);
 insert into emp values( 7934, 'MILLER', 'CLERK', 7782, '2003-01-23', 1300, null, 10);
   
+  
+  1.사원 테이블을 통한 연동 실습
+  (1)기본출력/입력/수정/삭제
+  출력(전체) / 입력(전체) / 수정(급여,입사일) / 삭제(사원번호)
+  (2) 특정 목적별 단위별 출력
+  - 부서별 직원 출력
+  (3) 페이지별 출력
+  - 한 화면에 5개씩출력한다
+  empMysql - EmpAdmin.java
+  
+
