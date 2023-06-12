@@ -55,22 +55,14 @@ public class student_Search extends DbConnect{
              
              String userid = scn.next();
              System.out.println("확인할 학년을 입력해주세요");
-             System.out.println("학기를 입력해주세요");
+             int grade
+		      System.out.println("학기를 입력해주세요");
+             int hakgi
              
-             
-             String sql = "select "
-             		+ "s.userid as userid "
-             		+ "i.name as name "
-             		+ "i.school as school "
-             		+ "s.grade as grade "
-             		+ "s.hakgi as hakgi "
-             		+ "from"
-             		+ "student_score s, student_info i "
-             		+ "where "
-             		+ "s.userid = i.userid "
-             		+ "and"
-             		+ "s.u"
-             		+ "s.grade=UPPER('"+userid+"')";
+             String sql = c(b(a(
+		     select ~~~
+		     where (userid,grade,hakgi)
+		     
              
             ResultSet rs = stmt.executeQuery(sql);
             while(rs.next()) {
