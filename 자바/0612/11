@@ -90,4 +90,10 @@ insert into emp values( 7934, 'MILLER', 'CLERK', 7782, '2003-01-23', 1300, null,
   
 이클립스가서 패키지 empMysql
 클라스 EmpAdmin.java
-  ㅍ
+	-main()
+	-empDml()
+	-empSelectList()
+	-empInsert(0
+	-empUpdate()
+	-empDelete()
+	
