@@ -2,7 +2,7 @@
 2. mysqlConnect() 메소드 생성 ( DbCOnnect에)
 
 public static Connection mysqlConnect() throws Exception {
-	
+//              = "프로그램명칭://프로그램위치:접속포트번호/Db명?"	
 	String url = "jdbc:mysql://localhost:3306/apple1004?useUnicode=true&characterEncoding=utf8";
 	String username = "test1004";
 	String userpass = "123456";
@@ -30,3 +30,36 @@ apple1004 / utf8_general_ci
 암호 123456
 
 권한 모두체크
+
+6.
+https://cafe.daum.net/himedia1001/aotr/4
+파일다운이 아니고 여기적음
+sql 테이블생성
+
+CREATE TABLE  DEPT
+(
+  DEPTNO  int(2),     -- 부서번호
+  DNAME   VARCHAR(14),  -- 부서이름
+  LOC     VARCHAR(13)    -- 부서위치
+);
+
+insert into dept values(10, 'ACCOUNTING', 'NEW YORK');
+insert into dept values(20, 'RESEARCH', 'DALLAS');
+insert into dept values(30, 'SALES', 'CHICAGO');
+insert into dept values(40, 'OPERATIONS', 'BOSTON');
+
+phpmyadmin 다시 가서 sql에 복붙
+
+CREATE TABLE  EMP
+(
+  EMPNO     int(4),      -- 사원번호
+  ENAME     VARCHAR(10),   -- 사원이름 
+  JOB       VARCHAR(9),     -- 업무 
+  MGR       int(4),      -- 매니저
+  HIREDATE  DATE,           -- 입사일
+  SAL       int,     -- 급여
+  COMM      int,    -- 추가급여
+  DEPTNO    int,      -- 부서번호
+ primary key(empno) 
+);
+
