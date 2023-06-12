@@ -87,6 +87,7 @@ insert into emp values( 7934, 'MILLER', 'CLERK', 7782, '2003-01-23', 1300, null,
   - 부서별 직원 출력
   (3) 페이지별 출력
   - 한 화면에 5개씩출력한다
-  empMysql - EmpAdmin.java
   
-
+이클립스가서 패키지 empMysql
+클라스 EmpAdmin.java
+  ㅍ
