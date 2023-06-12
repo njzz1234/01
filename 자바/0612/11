@@ -1,1 +1,7 @@
-mysql-connector jar.압축풀고 폴더채로  project explolerer에 빌드패스 configure // external jar
+1. mysql-connector jar.압축풀고 폴더채로  project explolerer에 빌드패스 configure // external jar
+2. mysqlConnect() 메소드 생성 ( DbCOnnect에)
+
+
+
+3. apmsetup / http://127.0.0.1/myadmin/
+아이디 test1 / 비번 123456
