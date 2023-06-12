@@ -92,8 +92,8 @@ insert into emp values( 7934, 'MILLER', 'CLERK', 7782, '2003-01-23', 1300, null,
 클라스 EmpAdmin.java
 	-main()
 	-empDml()
-	-empSelectList()
-	-empInsert(0
-	-empUpdate()
-	-empDelete()
+	-empSelectList()  - 사원목록출력(사원번호,사원명,급여,부서번호)
+	-empInsert() - 전체사원정보입력(사원번호를 max(사원번호) +1 )
+	-empUpdate() 사원번호를 받아서 급여와 입사일만 변경할수있게
+	-empDelete() 사원번호를 받아서 삭제
 	
