@@ -30,3 +30,9 @@ ctrl f11하고 아파치클릭하고 방화벽등등확인(서버자동체크박
 
 맨위 런- 런컨피겨런스-아파치톰캣 - 커먼-인코딩-use system encoding-어플라이
 
+
+
+-GET 방식 / POST 방식
+
+Http://웹주소:포트번호/프로젝트명/파일명
+http://localhost:8080/jsp_project/getTest1.jsp?eng=100
