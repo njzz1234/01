@@ -16,3 +16,7 @@ src-main-webapp -우클릭-jsp file - test1.jsp
 
 jsp_project (젤상위폴더- 빌드패스-클릭-애드라이브러리-서버런타임-아파치-피니시-어플라이앤클로즈
 2. 젤상위폴더-우클릭-프로퍼티스-프로젝트 facets-dynamic web module 클릭- 오른쪽런타임-apcachetomcat 클릭 어플라이저장
+
+ctrl f11 실행전에 서버를잡아줘야함
+
+밑에칸에 serveers 가서 클릭 아파치9.0 피니시
