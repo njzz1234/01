@@ -34,8 +34,23 @@ ctrl f11하고 아파치클릭하고 방화벽등등확인(서버자동체크박
 
 -GET 방식 / POST 방식
 
+1.getTest1.jsp
+
 겟방식 = 주소뒤에 변수를 설정해서 전송하는방식
+전송데이터가 보인다
+
+
 Http://웹주소:포트번호/프로젝트명/파일명?파라미터
 http://localhost:8080/jsp_project/getTest1.jsp?eng=100
 
-포스트방식=
+2.getTest2.jsp
+링크 형태
+
+----------------------
+{아이디&암호 전송}
+1.getTest3.jsp
+2.getTest3_sub.jsp << 1을받아서 2에출력한다
+
+
+포스트방식= 전송데이터가안보인다
+http://localhost:8080/jsp_project/postTest3.jsp
