@@ -34,5 +34,6 @@ ctrl f11하고 아파치클릭하고 방화벽등등확인(서버자동체크박
 
 -GET 방식 / POST 방식
 
+겟방식 = 주소뒤에 변수를 설정하는거
 Http://웹주소:포트번호/프로젝트명/파일명?파라미터
 http://localhost:8080/jsp_project/getTest1.jsp?eng=100
