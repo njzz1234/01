@@ -2,7 +2,7 @@ workspace_jsp > jsp_project > src > main > webapp > web-inf > lib > ojdbc6(압�
 
 
 1. 쓰기화면 - deptWrite.jsp
-2. 저장처리 - deptWriteSave.jsp
+2. 저장처리 - deptWriteSave.jsp  <<<<<<< 잘못코딩한듯
 3. 목록화면 - deptList.jsp
 4. 수정화면 - deptModify.jsp
 5. 수정처리 - deptModifySave.jsp
