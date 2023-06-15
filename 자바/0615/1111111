@@ -19,7 +19,7 @@ workspace_jsp > jsp_project > src > main > webapp > web-inf > lib > ojdbc6(압�
 2. 사원등록화면 - empWrite.jsp
 사원번호자동출력,매니저선택,부서선택,업무선택 
    - 부서번호 자동으로 출력
-3. 사원저장처리 - empWriteSave.jsp
+3. 사원저장처리 - empWriteSave.jsp <<<<<<<<<<<<<<<<
     - 사원번호 중복체크, 부서번호의 존재유무, 저장처리
 4. 사원수정화면 - empModify.jsp
 5. 사원수정처리 - empModifySave.jsp
@@ -28,3 +28,6 @@ workspace_jsp > jsp_project > src > main > webapp > web-inf > lib > ojdbc6(압�
      - 수정화면에 삭제버튼을 추가하여 삭제처리한다.
 
      - 정말삭제하시겠습니까?  라는 메시지로 확인 후 삭제처리한다.
+
+
+webapp - include - oracleCon.jsp 생성
