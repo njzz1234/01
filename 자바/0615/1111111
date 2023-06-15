@@ -1,3 +1,9 @@
 workspace_jsp > jsp_project > src > main > webapp > web-inf > lib > ojdbc6(압축파일) > 빌드패스 > 전체폴더리프레시
 
 
+1. 쓰기화면 - deptWrite.jsp
+2. 저장처리 - deptWriteSave.jsp
+3. 목록화면 - deptList.jsp
+4. 수정화면 - deptModify.jsp
+5. 수정처리 - deptModifySave.jsp
+6. 삭제처리 - deptDelete.jsp
