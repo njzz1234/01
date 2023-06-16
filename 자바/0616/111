@@ -3,7 +3,16 @@
 notice_write.jsp
 notice_write_save
 notice_list
-notice_modify
+4. notice_modify
+
+String sql = "update board set hits=hits+1 where unq'"+unq"' ";
+<form ~~ >
+ <input type="hidden" name="unq" value="<%=unq%>">
+asdasd
+</form> 
+
+
+
 notice_modify_save
 notice_delete
 
