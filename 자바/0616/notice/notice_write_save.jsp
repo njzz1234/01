@@ -44,8 +44,8 @@
 	
 <!-- 입력SQL 작성 및 적용 -->
 <% 
-String sql2 = "insert into notice(title,content,unq,hits,rdate) "
-			+" values ('"+title+"','"+content+"','"+unq+"','"+hits+"','"+rdate+"')";
+String sql2 = "insert into notice(unq,title,content,hits,rdate) "
+			+" values (notice_unq.nextval,'"+title+"','"+content+"','0',sysdate)";
 int result = stmt.executeUpdate(sql2) ;
 %>
 <!-- 저장완료 메세지 -->
