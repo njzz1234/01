@@ -1,0 +1,27 @@
+[공지사항]
+폴더 notice
+notice_write.jsp
+notice_write_save
+notice_list
+notice_modify
+notice_modify_save
+notice_delete
+
+[등록/수정화면]
+제목:
+내용:
+
+[테이블]
+고유번호/제목/내용varchar2(4000)/조회수/등록일
+
+
+
+
+
+
+
+
+
+
+
+
