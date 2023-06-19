@@ -21,9 +21,9 @@
        (1) 암호 체크 후 삭제 처리
 
 테이블-board1
-고유번호 / 제목 / 암호 / 글쓴이 / 내용 / 조회수 / 등록일
+고유번호unq숫자 / 제목title문자 / 암호pass문자 / 글쓴이name문자 / 내용content문자 /  조회수hits숫자 / 등록일
 create table board1 (  
-  unq  number  not  null  primary key,   
+  unq  number  not  null  primary key,     
   title varchar2(100) not null,
   pass varchar2(100) not null,
   name varchar2(20),
