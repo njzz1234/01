@@ -22,15 +22,59 @@
 
 테이블-board1
 고유번호unq숫자 / 제목title문자 / 암호pass문자 / 글쓴이name문자 / 내용content문자 /  조회수hits숫자 / 등록일
-create table board1 (  
-  unq  number  not  null  primary key,     
-  title varchar2(100) not null,
-  pass varchar2(100) not null,
-  name varchar2(20),
-  content varchar2(4000),  
-  hits  number default '0',
-  rdate timestamp,
-  udate timestamp );
+
+테이블 - board1
+(1) 고유번호   - unq    숫자
+(2) 제목  - title  문자
+(3) 암호  - pass   문자
+(4) 글쓴이  - name   문자
+(5) 내용  - content 문자
+(6) 조회수  - hits    숫자
+(7) 최초등록일/시 - rdate 날짜/시간 
+(8) 최종수정일/시 - udate 날짜/시간
+
+create table board1 (   -- Oracle 설정
+ unq number not null,
+ title varchar2(100) not null,
+ pass  varchar2(100) not null,
+ name  varchar2(20),
+ content varchar2(4000),
+ hits number default '0',    -- 널값(누락)방지
+ rdate timestamp,
+ udate timestamp,
+ constraint board1_unq_pk primary key(unq)
+);
+
+create sequence board1_seq
+start with 1
+increment by 1
+maxvalue 99999;
+
+-------------------------------------------
+create table board1 (       -- MySQL은 이렇게 설정
+ unq int not null primary key, 
+ title varchar(100) not null,
+ pass  varchar(100) not null,
+ name  varchar(20),
+ content text,
+ hits int default '0',    -- 널값(누락)방지
+ rdate datetime,
+ udate datetime
+);
+----------------------------------
+(10개씩 출력하는 SQL)
+
+select b.* from (
+                 select rownum rn, a.* from (
+                 select 
+                     unq,title,name,hits,to_char(rdate,'yyyy-mm-dd') rdate 
+ from  board1
+ order by unq desc) a ) b
+where 
+     rn >=  1 and rn <= 10;  -- 1page
+ -- rn >= 11 and rn <= 20;  -- 2page
+ -- rn >= 21 and rn <= 30;  -- 3page
+--  rn >= 31 and rn <= 40;  -- 4page
 
 테이블화
 select unq,title,name,hits, to_char(rdate,'yyyy-mm-dd') rdate from board1 order by unq desc 
