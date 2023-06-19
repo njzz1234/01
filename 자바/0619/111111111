@@ -19,3 +19,17 @@
        (1) 삭제 시 암호 입력화면
    8. 삭제 처리 - board1Delete.jsp
        (1) 암호 체크 후 삭제 처리
+
+테이블-board1
+고유번호 / 제목 / 암호 / 글쓴이 / 내용 / 조회수 / 등록일
+create table board1 (  
+  unq  number  not  null  primary key,   
+  title varchar2(100) not null,
+  pass varchar2(100) not null,
+  name varchar2(20),
+  content varchar2(4000),  
+  hits  number default '0',
+  rdate timestamp,
+  udate timestamp );
+
+
