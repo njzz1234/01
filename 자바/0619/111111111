@@ -32,4 +32,15 @@ create table board1 (
   rdate timestamp,
   udate timestamp );
 
+테이블화
+select unq,title,name,hits, to_char(rdate,'yyyy-mm-dd') rdate from board1 order by unq desc 
+
+select rownum rn, a.* from (
+select unq,title,name,hits, to_char(rdate,'yyyy-mm-dd') rdate from board1 order by unq desc ) a 
+ 
+select b.* from (
+select rownum rn, a.* from (
+select unq,title,name,hits, to_char(rdate,'yyyy-mm-dd') rdate from board1 order by unq desc) a ) b
+where rn >= 1 and rn<= 10;
+
 
