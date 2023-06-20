@@ -11,3 +11,16 @@ CREATE TABLE reboard (
    thread varchar(50) not null,        -- (답변)관계설정    답변게시판
 
    primary key(unq) 
+
+sqldeveloper
+CREATE TABLE reboard (
+  unq    number not null primary key,
+  title    varchar2(100) not null,       
+  pass   varchar2(100) not null,      
+  name  varchar2(20),                     
+  content varchar2(4000),                        
+  hits   number default 0,  
+  rdate  timestamp,                
+   gid   number not null,   
+   thread varchar2(50) not null, 
+   );
