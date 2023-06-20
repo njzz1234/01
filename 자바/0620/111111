@@ -82,3 +82,14 @@ a - aa
     (3) thread 값은 저장된 관련 thread 값을 이용하여 처리한다.
  8.삭제
 댓글존재여부 - 존재o update / 존재x delete
+
+9. 답변 화면 - replyWrite.jsp
+10. 답변 저장 처리 - replyWriteSave.jsp
+
+unq--> gid값과 thread값을 얻어내는 sql 필요
+String sql1 = "select gid,thread from reboard "
+            + " where unq='"+unq+"' ";
+
+
+select nvl(max(thread),'a') as dbThread from reboard
+where gid='12 and thread like 'a_';
