@@ -24,3 +24,12 @@ CREATE TABLE reboard (
    gid   number not null,   
    thread varchar2(50) not null, 
    );
+
+CREATE sequence reboard_seq
+start with 1
+increment by 1
+maxvalue 99999;
+
+
+
+
