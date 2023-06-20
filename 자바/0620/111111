@@ -1,0 +1,13 @@
+MYSQL
+CREATE TABLE reboard (
+   unq    int unsigned not null  auto_increment,     --  고유번호
+   title    varchar(100) not null,        -- 제목
+   pass   varchar(100) not null,        -- 암호
+   name  varchar(20),                       -- 글쓴이
+   content text,                                 -- 내용
+   hits      int unsigned default 0,    -- 조회수
+   rdate   datetime,                          -- 등록일(시간)
+   gid       int unsigned not null,     -- 그룹ID          답변게시판
+   thread varchar(50) not null,        -- (답변)관계설정    답변게시판
+
+   primary key(unq) 
