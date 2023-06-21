@@ -25,7 +25,7 @@ int total = rs0.getInt("total");
 //  12.0/10 -> ceil(1.2) -> (int)2.0 -> 2
 //  19.0/10 -> ceil(1.9) -> (int)2.0 -> 2
 int lastpage = (int)Math.ceil((double)total/10);
-int number = total;
+int number = total - (Integer.parseInt(viewPage)-1)*10;
 
 String sql1 = "select b.* from ( "
 			+ "		select rownum rn, a.* from ( "

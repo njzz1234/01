@@ -7,7 +7,7 @@
 <%
 String unq = request.getParameter("unq");
 String pass = request.getParameter("pass");
-%>
+%>  .
 <!--  null 체크 -->
 
 
