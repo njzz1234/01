@@ -1,22 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<%
+String unq = request.getParameter("unq");
+%>
+
+<!-- unq의 null 체크 -->
+<%
+if( unq == null || unq.equals("") ) {
+%>
+		<script>
+		alert("잘못된 경로로의 접근!!");
+		location="board1List.jsp";
+		</script>
+<%	
+	return;
+}
+%>
+
 <!DOCTYPE html>
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>게시판 글쓰기</title>
+  <title>암호확인</title>
   <link rel="stylesheet" href="../css/layout.css">
 </head>
 
 <script>
 function fn_submit() {
 	var f = document.frm;
-	if( f.title.value == "" ) {
-		alert("제목을 입력해주세요.");
-		f.title.focus();
-		return false; // 종료
-	}
 	if( f.pass.value == "" ) {
 		alert("암호를 입력해주세요.");
 		f.pass.focus();
@@ -25,7 +37,6 @@ function fn_submit() {
 	f.submit();
 }
 </script>
-
 
 
 <body>
@@ -38,70 +49,50 @@ function fn_submit() {
     <nav>
 	 	<div class="nav_left_space">&nbsp;</div>
 		<div class="nav_center_space"> 
-		
+
+	<!-- nav menu S -->
 	<%@ include file="../include/navmenu.jsp" %>
-		
+	<!-- nav menu E -->
+
 		</div>
 		<div class="nav_right_space">&nbsp;</div>
     </nav>
-	
 	<aside>
-		
-	<!-- aside S -->
-	<%@ include file="../include/aside.jsp" %>
-	<!-- aside E -->		
-		
+		aside 영역
 	</aside>
-	
     <section>
        <article>
 <!-- 본문 START -->
 
-<form name="frm" method="post" action="board1WriteSave.jsp">
+<form name="frm" method="post" action="board1Delete.jsp">
+<input type="hidden" name="unq" value="<%=unq %>">
 <table>
 	<caption style="font-size:20px;
-				    font-weight:bold;">등록화면</caption>
+				    font-weight:bold;">암호화면</caption>
 	<colgroup>
 		<col width="20%"/>
 		<col width="*"/>
 	</colgroup>
 	<tr>
-		<th>제목</th>
-		<td><input type="text" name="title" style="width:99%;"></td>
-	</tr>
-	<tr>
 		<th>암호</th>
 		<td><input type="password" name="pass" style="width:99%;"></td>
-	</tr>
-	<tr>
-		<th>글쓴이</th>
-		<td><input type="text" name="name" style="width:99%;"></td>
-	</tr>
-	<tr>
-		<th>내용</th>
-		<td>
-			<textarea name="content" style="width:99%;height:100px;"></textarea> 
-		</td>
 	</tr>
 </table>
 <div style="width:600px;
 			margin-top:10px;
 			text-align:center;">
-	<button type="submit" onclick="fn_submit();return false;">저장</button>
+	<button type="submit" onclick="fn_submit();return false;">삭제</button>
 	<button type="reset">취소</button>
 </div>
 </form>
-			
-<!-- 본문 END -->		
+
+
+<!-- 본문 END   -->
        </article>
     </section>
     <footer>
-	
         Footer 영역
-           
     </footer>
 </div>
 </body>
 </html>
-
-

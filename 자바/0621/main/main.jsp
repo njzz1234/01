@@ -1,121 +1,41 @@
+<%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 
+<%@ include file="../include/oracleCon.jsp" %>
+<%
+String sql1 = "select a.* from ("
+            + "   select unq"
+            + "      ,substr(title,1,10) title "
+            + "      ,name "
+            + "      ,to_char(rdate,'yy-mm-dd') rdate "
+            + "    from board1 "
+	        + "   order by unq desc ) a "
+            + " where rownum < 6";
+Statement stmt1 = con.createStatement();
+ResultSet rs1 = stmt1.executeQuery(sql1);
+
+String sql2 = "select a.* from ("
+	        + "   select unq"
+	        + "      ,substr(title,1,10) title "
+	        + "      ,name "
+	        + "      ,to_char(rdate,'yy-mm-dd') rdate "
+	        + "    from reboard "
+	        + "   where thread='a' "
+	        + "   order by gid desc ) a "
+	        + " where rownum < 6";
+Statement stmt2 = con.createStatement();
+ResultSet rs2 = stmt2.executeQuery(sql2);
+%>
+
+<!DOCTYPE html>
 <html lang="en">
  <head>
   <meta charset="UTF-8">
   <title>layout2</title>
-<style>
-body{
-	text-align: center;
-	font-size:12px;
-}
-a {
-	text-decoration: none;
-}
-.wrap {
-    width:100%;
-    height:900px;
-    margin: 0px auto;
-}
-header{
-   width:100%;
-   height : 100px;
-	line-height: 100px;
-	margin-bottom:3px;
-}
-.top_header {
-	width:100%;
-	height:100px;
-	background:#f2f2f2;
-	float:left;
-}
-nav{
-	background:#ffffcc;
-	width:100%;
-	height:30px;
-	margin-bottom:3px;
-	padding-top:5px;
-	padding-bottom:5px;
-	line-height:2.0;
-}
-aside {
-	float:left; 
-	line-height: 350px;
-	background:#999900;
-	width:200px;
-	height:600px;
-}
-section{
-	background:#f8f8f8;
-	height : 600px;
-	padding-left: 10px;
-}
-article {
-	position:relative;
-	width:100%;
-	height:500px;
-	padding-top:50px;
-	padding-left:220px;
-}
-footer {
-	background:#0099ff;            
-	height : 55px;
-	line-height : 55px;
-}
-.nav_left_space {
-	position:relative;
-	float: left;
-	/*background:pink;*/
-	width:10%;
-
-}
-.nav_left_space {
-	position:relative;
-	float: left;
-	/*background:pink;*/
-	width:10%;
-
-}
-.nav_right_space {
-	position:relative;
-	float: left;
-	/*background:pink;*/
-	width:10%;
-}
-.nav_center_space {
-	position:relative;
-	float: left;
-	/*background:green;*/
-	width:80%;
-}
-
-.menuLink {
-	position:relative;
-	float: left;
-	left:12%;
-	list-style: none; 
-	background-color: #e4effc;  
-	line-height: 30px;   
-	text-align: center;
-	width: 10%;   
-	border:1px solid #ffffff;
-	margin-top:-12px;
-}
-
-table {
-    width: 600px;
-    border: 1px solid #444444;
-    border-collapse: collapse;
-}
-th, td {
-    border: 1px solid #444444;
-    padding: 10px;
-}
-
-</style>
+  <link rel="stylesheet" href="../css/layout.css">
 </head>
+
 <body>
 <div class="wrap">
     <header>
@@ -126,55 +46,99 @@ th, td {
     <nav>
 	 	<div class="nav_left_space">&nbsp;</div>
 		<div class="nav_center_space"> 
-		<ul>
-			<li class="menuLink"><a href="../main/main.jsp">홈</a></li>
-			<li class="menuLink"><a href="#">일정관리</a></li>
-			<li class="menuLink"><a href="../board/board1List.jsp">게시판</a></li>
-			<li class="menuLink"><a href="../board/reBoardList.jsp">답변게시판</a></li>
-			<li class="menuLink"><a href="#">회원가입</a></li>
-			<li class="menuLink"><a href="#">로그인</a></li>
-		</ul>
+	
+	<!-- nav menu S -->
+		<%@ include file="../include/navmenu.jsp" %>
+	<!-- nav menu E -->
+		
 		</div>
 		<div class="nav_right_space">&nbsp;</div>
     </nav>
 	<aside>
-		aside 영역
+	<!-- aside area S -->
+		<%@ include file="../include/aside.jsp" %>
+	<!-- aside area E -->
 	</aside>
     <section>
        <article>
+	<!-- 본문 S -->
+<div>
+<!-- 일반게시판 최신 5개 영역 -->
+	<table style="width:500px;">
+		<caption>일반게시판</caption>
+		<tr>
+			<th width="15%">번호</th>
+			<th>제목</th>
+			<th width="20%">글쓴이</th>
+			<th width="20%">등록일</th>
+		</tr>
+	<%
+	int number1 = 0;
+	while( rs1.next() ) {
+		String unq   = rs1.getString("unq");
+		String title = rs1.getString("title");
+		String name  = rs1.getString("name");
+		String rdate = rs1.getString("rdate");
+		number1++;
+	%>
+		<tr>
+			<td><%=number1 %></td>
+			<td style="text-align:left;">
+		<a href="../board/board1Detail.jsp?unq=<%=unq%>"><%=title %></a></td>
+			<td><%=name %></td>
+			<td><%=rdate %></td>
+		</tr>
+	<%
+	}
+	%>
+	
+	</table>
+</div>
 
-		<table>
-		<caption> CSS 적용 테이블 </caption>
-		<colgroup>
-			 <col width="20%"/>
-			 <col width="50%"/>
-			 <col width="30%"/>
-		 </colgroup>
-		 <thead>
-			 <tr>
-				  <th>번호</th>
-				  <th>제목</th>
-				  <th>날짜</th>
-			 </tr>
-		 </thead>
-		 <tbody>
-			 <tr>
-				  <td>1</td>
-				  <td>도시까스요금..</td>
-				  <td>2018-02-02</td>
-			 </tr>
-			 <tr>
-				   <td>2</td>
-				   <td>도시까스요금..</td>
-				   <td>2018-02-02</td>
-			  </tr>
-		 </tbody>
-		</table>
+<div>
+<!-- 답변게시판 최신 5개 영역(원글만) -->
+	<table style="width:500px;">
+		<caption>답변게시판</caption>
+		<tr>
+			<th width="15%">번호</th>
+			<th>제목</th>
+			<th width="20%">글쓴이</th>
+			<th width="20%">등록일</th>
+		</tr>
+	<%
+	int number2 = 0;
+	while( rs2.next() ) {
+		String unq   = rs2.getString("unq");
+		String title = rs2.getString("title");
+		String name  = rs2.getString("name");
+		String rdate = rs2.getString("rdate");
+		number2++;
+	%>
+		<tr>
+			<td><%=number2 %></td>
+			<td style="text-align:left;">
+ <a href="../board/reBoardDetail.jsp?unq=<%=unq%>"><%=title %></a>
+			</td>
+			<td><%=name %></td>
+			<td><%=rdate %></td>
+		</tr>
+	<%
+	}
+	%>
+		
+		
+	</table>
 
+</div>
+
+
+    <!-- 본문 E -->
        </article>
     </section>
     <footer>
-        Footer 영역
+	<!-- footer area S -->
+		<%@ include file="../include/footer.jsp" %>
+	<!-- footer area E -->
     </footer>
 </div>
 </body>

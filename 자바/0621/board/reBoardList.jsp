@@ -14,7 +14,7 @@ if( viewPage == null ) {
 int first_rn = ((Integer.parseInt(viewPage)-1) * 10) + 1;
 int last_rn  = first_rn + 9;
 
-String sql0 = "select count(*) total from board1";
+String sql0 = "select count(*) total from reboard";
 Statement stmt0 = con.createStatement();
 ResultSet rs0 = stmt0.executeQuery(sql0);
 rs0.next();
@@ -32,9 +32,9 @@ int number = total - (Integer.parseInt(viewPage)-1)*10; // 일년번호
 String sql1 = "select b.* from ( "
 			+ "		select rownum rn, a.* from ( "
 			+ "				select "
-			+ "				   unq,title,name,hits,to_char(rdate,'yyyy-mm-dd') rdate " 
-			+ "				from  board1 "
-			+ "				 order by unq desc) a ) b "
+			+ "				   unq,thread,title,name,hits,to_char(rdate,'yyyy-mm-dd') rdate " 
+			+ "				from  reboard "
+			+ "				 order by gid desc,thread asc) a ) b "
 			+ "	where "
 			+ "	rn >= "+first_rn+" and rn <= "+last_rn;
 Statement stmt1 = con.createStatement();
@@ -46,7 +46,7 @@ ResultSet rs1 = stmt1.executeQuery(sql1);
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>게시판 목록</title>
+  <title>답변게시판 목록</title>
   <link rel="stylesheet" href="../css/layout.css">
 </head>
 <body>
@@ -58,25 +58,26 @@ ResultSet rs1 = stmt1.executeQuery(sql1);
     </header>
     <nav>
 	 	<div class="nav_left_space">&nbsp;</div>
-		<div class="nav_center_space">
- 
-	<!-- nav menu S -->
-	<%@ include file="../include/navmenu.jsp" %>
-	<!-- nav menu E -->	
+		<div class="nav_center_space"> 
 	
+	<!-- nav menu S -->
+		<%@ include file="../include/navmenu.jsp" %>
+	<!-- nav menu E -->
+		
 		</div>
 		<div class="nav_right_space">&nbsp;</div>
     </nav>
 	<aside>
-		aside 영역
+	<!-- aside area S -->
+		<%@ include file="../include/aside.jsp" %>
+	<!-- aside area E -->
 	</aside>
     <section>
        <article>
-<!-- 본문 START -->
-
+	<!-- 본문 S -->
 <table>
 	<caption  style="font-size:20px;
-				     font-weight:bold;">게시판 목록</caption>
+				     font-weight:bold;">답변 게시판 목록</caption>
 	<colgroup>
 		<col width="10%" />
 		<col width="*" />
@@ -95,15 +96,27 @@ ResultSet rs1 = stmt1.executeQuery(sql1);
 	<%
 	while( rs1.next() ) {
 		String unq = rs1.getString("unq");
+		String thread = rs1.getString("thread");
 		String title = rs1.getString("title");
 		String name = rs1.getString("name");
 		String hits = rs1.getString("hits");
 		String rdate = rs1.getString("rdate");
+		
+		// a -> 1 ,  aa -> 2
+		int thread_len = thread.length();
     %>
 		<tr>
 			<td><%=number %></td>
-			<td style="text-align:left;">
-			<a href="board1Detail.jsp?unq=<%=unq%>"><%=title %></a>
+			
+			<td style="text-align:left;" >
+	<%
+	for(int i=1; i<thread_len; i++) {
+		out.print("&nbsp;&nbsp;&nbsp;");
+	}
+	if(thread_len > 1) {  out.print("(re)");   }
+	%>
+	<a href="reBoardDetail.jsp?unq=<%=unq%>"><%=title %></a>
+			
 			</td>
 			<td><%=name %></td>
 			<td><%=hits %></td>
@@ -120,7 +133,7 @@ ResultSet rs1 = stmt1.executeQuery(sql1);
 	  <%
 	  for(int i=1; i<=lastpage; i++) {
 	  %>
-	  	  <a href="board1List.jsp?viewPage=<%=i%>"><%=i %></a> 
+	  	  <a href="reBoardList.jsp?viewPage=<%=i%>"><%=i %></a> 
 	  <%
 	  }
 	  %>
@@ -128,16 +141,17 @@ ResultSet rs1 = stmt1.executeQuery(sql1);
 
 <div style="width:600px;margin-top:10px;text-align:right;">
 	
-	<button type="button" onclick="location='board1Write.jsp'">글쓰기</button>
+	<button type="button" onclick="location='reBoardWrite.jsp'">글쓰기</button>
 
 </div>
-	
-	
-<!-- 본문 END -->	
+
+    <!-- 본문 E -->
        </article>
     </section>
     <footer>
-        Footer 영역
+	<!-- footer area S -->
+		<%@ include file="../include/footer.jsp" %>
+	<!-- footer area E -->
     </footer>
 </div>
 </body>

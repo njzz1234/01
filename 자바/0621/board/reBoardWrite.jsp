@@ -5,10 +5,9 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>게시판 글쓰기</title>
+  <title>답변게시판 글쓰기</title>
   <link rel="stylesheet" href="../css/layout.css">
 </head>
-
 <script>
 function fn_submit() {
 	var f = document.frm;
@@ -25,9 +24,6 @@ function fn_submit() {
 	f.submit();
 }
 </script>
-
-
-
 <body>
 <div class="wrap">
     <header>
@@ -38,29 +34,26 @@ function fn_submit() {
     <nav>
 	 	<div class="nav_left_space">&nbsp;</div>
 		<div class="nav_center_space"> 
-		
-	<%@ include file="../include/navmenu.jsp" %>
+	
+	<!-- nav menu S -->
+		<%@ include file="../include/navmenu.jsp" %>
+	<!-- nav menu E -->
 		
 		</div>
 		<div class="nav_right_space">&nbsp;</div>
     </nav>
-	
 	<aside>
-		
-	<!-- aside S -->
-	<%@ include file="../include/aside.jsp" %>
-	<!-- aside E -->		
-		
+	<!-- aside area S -->
+		<%@ include file="../include/aside.jsp" %>
+	<!-- aside area E -->
 	</aside>
-	
     <section>
        <article>
-<!-- 본문 START -->
-
-<form name="frm" method="post" action="board1WriteSave.jsp">
+	<!-- 본문 S -->
+<form name="frm" method="post" action="reBoardWriteSave.jsp">
 <table>
 	<caption style="font-size:20px;
-				    font-weight:bold;">등록화면</caption>
+				    font-weight:bold;">(답변형)등록화면</caption>
 	<colgroup>
 		<col width="20%"/>
 		<col width="*"/>
@@ -91,17 +84,14 @@ function fn_submit() {
 	<button type="reset">취소</button>
 </div>
 </form>
-			
-<!-- 본문 END -->		
+    <!-- 본문 E -->
        </article>
     </section>
     <footer>
-	
-        Footer 영역
-           
+	<!-- footer area S -->
+		<%@ include file="../include/footer.jsp" %>
+	<!-- footer area E -->
     </footer>
 </div>
 </body>
 </html>
-
-

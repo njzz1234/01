@@ -1,3 +1,4 @@
+<%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -6,6 +7,7 @@
 
 <!-- 파라메터 값 설정 -->
 <%
+String unq = request.getParameter("unq");
 String title = request.getParameter("title");
 String pass = request.getParameter("pass");
 String name = request.getParameter("name");
@@ -13,7 +15,7 @@ String content = request.getParameter("content");
 %>
 <!-- 널값 체크(제목,암호) -->
 <%
-if( title == null || pass == null ) { 
+if( title == null || pass == null || unq == null ) { 
 %>
 		<script>
 		alert("잘못된 경로로의 접근");
@@ -25,29 +27,47 @@ if( title == null || pass == null ) {
 
 title = title.trim(); // 앞뒤공백제거
 pass  = pass.trim();  // 앞뒤공백제거
-%>
-<!-- 저장 -->
-<%
 
-String sql = "insert into board1(unq,title,pass,name,content,rdate,udate)"
-		   + "values(board1_seq.nextval,'"+title+"','"+pass+"','"+name+"','"+content+"',sysdate,sysdate) ";
-
+String sql = " select count(*) cnt from board1 "
+           + "  where unq='"+unq+"' and pass='"+pass+"' ";
 Statement stmt = con.createStatement();
-int result = stmt.executeUpdate(sql);
+ResultSet rs = stmt.executeQuery(sql);
+rs.next();
+int cnt = rs.getInt("cnt");
+if( cnt == 0 ) {
+%>
+		<script>
+		alert("암호가 일치하지 않습니다.");
+		history.back();
+		</script>
+<%
+	return;
+}
+
+%>
+<!-- 저장(변경) -->
+<%
+String sql2 = "update board1  set "
+            + "   title='"+title+"', "
+            + "   name='"+name+"', "
+            + "   content='"+content+"', "
+            + "   udate=sysdate " 
+            + " where unq='"+unq+"'";
+int result = stmt.executeUpdate(sql2);
 %>
 <!-- 결과 메시지 출력 -->
 <%
 if( result == 1 ) {
 %>
 		<script>
-		alert("등록완료!");
+		alert("수정완료!");
 		location = "board1List.jsp";
 		</script>
 <%
 } else {
 %>
 		<script>
-		alert("등록실패!");
+		alert("수정실패!");
 		history.back();
 		</script>
 <%

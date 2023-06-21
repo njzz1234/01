@@ -17,7 +17,7 @@ if( unq == null || unq.equals("") ) {
 %>
 		<script>
 		alert("잘못된 경로로의 접근!!");
-		location="board1List.jsp";
+		location="reBoardList.jsp";
 		</script>
 <%	
 	return;
@@ -27,7 +27,7 @@ if( unq == null || unq.equals("") ) {
 <!-- 상세보기 SQL 작성 및 적용 -->
 <%
 String sql = " select title,name,content,rdate "
-		   + "   from board1 "
+		   + "   from reboard "
 		   + " where unq='"+unq+"' ";
 Statement stmt = con.createStatement();
 ResultSet rs = stmt.executeQuery(sql);
@@ -48,15 +48,14 @@ String rdate   = rs.getString("rdate");
 content = content.replace("\n", "<br>");
 
 stmt.executeUpdate
-	("update board1 set hits=hits+1 where unq='"+unq+"'");
+	("update reboard set hits=hits+1 where unq='"+unq+"'");
 
 %>  
-
 <!DOCTYPE html>
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>게시판 상세보기</title>
+  <title>layout2</title>
   <link rel="stylesheet" href="../css/layout.css">
 </head>
 <body>
@@ -71,22 +70,23 @@ stmt.executeUpdate
 		<div class="nav_center_space"> 
 	
 	<!-- nav menu S -->
-	<%@ include file="../include/navmenu.jsp" %>
-	<!-- nav menu E -->	
-	
+		<%@ include file="../include/navmenu.jsp" %>
+	<!-- nav menu E -->
+		
 		</div>
 		<div class="nav_right_space">&nbsp;</div>
     </nav>
 	<aside>
-		aside 영역
+	<!-- aside area S -->
+		<%@ include file="../include/aside.jsp" %>
+	<!-- aside area E -->
 	</aside>
     <section>
        <article>
-<!-- 본문 START -->
-
+	<!-- 본문 S -->
 <table>
 	<caption style="font-size:20px;
-				    font-weight:bold;">상세화면</caption>
+				    font-weight:bold;">(답변게시판)상세화면</caption>
 	<colgroup>
 		<col width="20%"/>
 		<col width="*"/>
@@ -116,15 +116,18 @@ stmt.executeUpdate
 			margin-top:10px;
 			text-align:center;">
 	<button type="button" onclick="history.back();">이전</button>
-	<button type="button" onclick="location='board1Modify.jsp?unq=<%=unq%>'">수정</button>
-	<button type="button" onclick="location='board1Pass.jsp?unq=<%=unq%>'">삭제</button>
-</div>
+	<button type="button" onclick="location='reBoardModify.jsp?unq=<%=unq%>'">수정</button>
+	<button type="button" onclick="location='reBoardPass.jsp?unq=<%=unq%>'">삭제</button>
+	<button type="button" onclick="location='reBoardReply.jsp?unq=<%=unq%>'">답글</button>
 
-<!-- 본문 END -->
+</div>
+    <!-- 본문 E -->
        </article>
     </section>
     <footer>
-        Footer 영역
+	<!-- footer area S -->
+		<%@ include file="../include/footer.jsp" %>
+	<!-- footer area E -->
     </footer>
 </div>
 </body>
