@@ -28,11 +28,11 @@ int lastpage = (int)Math.ceil((double)total/10);
 int number = total;
 
 String sql1 = "select b.* from ( "
-			+ "		select rownum rn, a.* from ( "
-			+ "				select "
-			+ "				   unq,title,name,hits,to_char(rdate,'yyyy-mm-dd') rdate " 
-			+ "				from  reboard "
-			+ "				 order by unq desc) a ) b "
+			+ "	select rownum rn, a.* from ( "
+			+ "	select "
+			+ "	unq,thread,title,name,hits,to_char(rdate,'yyyy-mm-dd') rdate " 
+			+ "	from  reboard "
+			+ "	order by gid desc, thread asc) a ) b "
 			+ "	where "
 			+ "	rn >= "+first_rn+" and rn <= "+last_rn;
 Statement stmt1 = con.createStatement();
@@ -85,14 +85,27 @@ th,td {
 	<%
 	while( rs1.next() ) {
 		String unq = rs1.getString("unq");
+		String thread = rs1.getString("thread");
 		String title = rs1.getString("title");
 		String name = rs1.getString("name");
 		String hits = rs1.getString("hits");
 		String rdate = rs1.getString("rdate");
+		
+		// a -> 1, aa-> 2
+		int thread_len = thread.length();
     %>
 		<tr>
 			<td><%=number %></td>
-			<td><a href="reBoardDetail.jsp?unq=<%=unq%>"><%=title %></a></td>
+			<td>
+			<%
+			for(int i=1; i<thread_len; i++) {
+				out.print("&nbsp;&nbsp;");
+			}
+			if(thread_len > 1) { out.print("(re)"); }
+			%>
+			<a href="reBoardDetail.jsp?unq=<%=unq%>"><%=title %></a>
+			
+			</td>
 			<td><%=name %></td>
 			<td><%=hits %></td>
 			<td><%=rdate %></td>
