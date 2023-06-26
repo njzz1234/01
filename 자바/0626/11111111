@@ -1,0 +1,20 @@
+sql
+create table memberinfo (
+ unq number not null,
+ userid varchar2(50) not null,  -- primary key
+ userpw varchar2(100) not null,
+ name varchar2(20) not null,
+ gender char(1) not null,          -- check
+ birth  date not null,
+ phone  varchar2(20) not null,   -- unique
+ zipcode varchar2(6),
+ addr1 varchar2(100),
+ addr2 varchar2(100),
+ hobby varchar2(50),  -- 바둑,축구
+ email varchar2(50),
+ homepage varchar2(100),
+ rdate timestamp,
+ constraint memberinfo_pk primary key(userid),
+ constraint memberinfo_ck check( gender in('M','F') ),
+ constraint memberinfo_un unique(phone)
+);
