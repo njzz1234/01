@@ -13,7 +13,12 @@ create table memberinfo (
  email varchar2(50),
  homepage varchar2(100),
  rdate timestamp,
- constraint memberinfo_pk primary key(userid),
- constraint memberinfo_ck check( gender in('M','F') ),
- constraint memberinfo_un unique(phone)
+ constraint memberinfo_userid_pk primary key(userid),
+ constraint memberinfo_gender_ck check( gender in('M','F') ),
+ constraint memberinfo_phone_un unique(phone)
 );
+
+create sequence memberinfo_seq
+start with 1
+increment by 1
+maxvalue 9999999;
