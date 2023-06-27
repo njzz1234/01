@@ -9,3 +9,21 @@ a. 세션 클래스 변수 :    서버 하드         유지               좋�
 b. 쿠키 클래스 변수 :    로컬 하드       유지                 중
 c 일반 클래스 변수 :     메모리         삭제               하
 
+String phone = "010-1111";
+String[] p_array = phone.split("-");
+// p_array[0] = "010";
+// p_array[1] = "1111";
+// System.out.println( (p_array[2]==null)?"00:"11 ); (오류)
+
+String [] pp = new String[3];
+pp[0] = p_array[0];
+pp[1] = p_array[1];
+pp[2] = null;
+System.out.println( (pp[2]==null)?"00:"11 );
+
+
+
+
+
+
+
