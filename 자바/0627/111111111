@@ -22,6 +22,19 @@ pp[2] = null;
 System.out.println( (pp[2]==null)?"00:"11 );
 
 
+membermodify
+membermodifysave
+passchange.jsp (팝업)
+현재암호 [  ]
+변경암호1 [  ] 1
+변경암호2 [  ] 2 비교
+ [적용][취소]
+passchangesub.jsp
+
+
+
+
+
 
 
 
