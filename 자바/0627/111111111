@@ -30,6 +30,8 @@ passchange.jsp (팝업)
 변경암호2 [  ] 2 비교
  [적용][취소]
 passchangesub.jsp
+(1) 현재암호 일치여부
+(2)일치할경우암호변경
 
 
 
