@@ -59,6 +59,7 @@ start with 1
 increment by 1
 maxvalue 99999;
 
+String sql_10 = "";
 sql_10 = select substr(title,1,20) as title from sche_mgr
 where to_char(sche_date,'yyyy-mm-dd')='2023-06-01'
 
