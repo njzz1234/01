@@ -45,10 +45,26 @@ ls -al
 
 
 rw-rwrw-r-> rwx r(4)w(2)x(1)
-chmod 777 test11.txt
+chmod 7 7 7 test11.txt
 ls -al
 종류   소유주 소유그룹 타인
           rwx rwx     rwx
+chmod 764 test11.txt
+ls -al test11.txt
+
+chmod 644
+chmod 000
+chmod 352
+cd /
+cd /etc/passwd ./ enter
+ls -al passwd
+cd /
+ls -al passwd
+cat passwd
+
+
+
+
 
 
 
