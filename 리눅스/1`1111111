@@ -42,7 +42,16 @@ ls /sbin enter
 cd enter(계정의 홈디렉토리로 이동)
 touch test11.txt
 ls -al
-rw-rwrw-r-> rwx
+
+
+rw-rwrw-r-> rwx r(4)w(2)x(1)
+chmod 777 test11.txt
+ls -al
+종류   소유주 소유그룹 타인
+          rwx rwx     rwx
+
+
+
 
 
 
