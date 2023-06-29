@@ -1,0 +1,78 @@
+test /1234
+linux(일반유저 --> ]$
+root(슈퍼유저 --> ]#
+
+윈도우->c:/>
+
+#ls -a     (숨김파일표ㅕ시)
+#ls -al     (상세출력)
+
+(허가권)      링크숫자   소유주      소유그룹       크기 날짜 이름
+-rwrw--r-r    3          root      root          11   
+
+touch  a.txt 파일만들때 touch
+cp a.txt b.txt 카피명령 원본 복사명
+mv b.txt b1.txt 잘라내기
+rm a.txt 파일삭제
+--------------------------
+mkdir abc1  디렉토리생성
+mkdir abc2   
+
+cd abc1 디렉토리로 이동(경로)
+abc1 #touch test1.txt 
+cd .. (상위 폴더로 이동)
+
+rmdir abc2 삭제(디렉토리가 텅비었을때만 가능(자식레벨x일때) )
+rm -rf abc1 디렉토리(파일삭제)
+----------------
+cp /etc/passwd  passwd.txt
+cat passwd.txt  파일내용확인및파일내용주입시사용
+
+cat > test1.txt 엔터
+aaaaaaa
+asdda
+asdasda
+ctrl c (종료)
+
+pwd   ;; 현재위치출력
+ls /etc enter
+ls /sbin enter
+
+-----허가권 변경 ------------
+cd enter(계정의 홈디렉토리로 이동)
+touch test11.txt
+ls -al
+rw-rwrw-r-> rwx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
