@@ -39,3 +39,33 @@ java        100
 oracle 100
 seoul
 [root@localhost ~]# 
+
+[=====vi test2.sh======]
+#!/bin/sh
+echo "linux"
+echo 'java'
+echo oracle
+echo "linux       100"
+echo 'java        100'
+echo oracle       100
+city=seoul
+echo $city
+echo "welcome to $city"
+echo 'welcome to $city'
+echo welcome to $city
+
+[======[root@localhost ~]# ./test2.sh ======]
+linux
+java
+oracle
+linux       100
+java        100
+oracle 100
+seoul
+welcome to seoul
+welcome to $city
+welcome to seoul
+
+
+
+
