@@ -116,5 +116,18 @@ avg=95
 Sun Jul  2 22:21:42 PDT 2023
 [root@localhost ~]# date "+%Y%m%d %H%M%s"
 20230702 22231688361799
+------------------------------
+#!/bin/bash
+echo "-- DATE --"
+echo "now1 : $(date +%Y%m%d)"
+
+nowDate=`date`
+echo %nowDate
+
+[root@localhost ~]# ./date.sh
+-- DATE --
+now1 : 20230702
+%nowDate
+------------------------------------
 
 
