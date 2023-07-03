@@ -111,5 +111,10 @@ eng=100
 kor=90
 sum=190
 avg=95
+------------------------------
+[root@localhost ~]# date
+Sun Jul  2 22:21:42 PDT 2023
+[root@localhost ~]# date "+%Y%m%d %H%M%s"
+20230702 22231688361799
 
 
