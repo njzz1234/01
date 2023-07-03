@@ -27,3 +27,23 @@ home1.tar.gz
 [root@localhost backup]# ls
 home1.tar.gz
 [root@localhost backup]# 
+---------------------------------
+{q백업 실행파일 생성후예약}
+]#cd  (홈으로)
+[root@localhost ~]# vi backup.sh
+---
+tar cvfz home2.tar.gz /home
+mv home2.tar.gz /backup
+:wq
+---
+[root@localhost ~]# chmod 777 backup.sh
+[root@localhost ~]# ls
+anaconda-ks.cfg  backup  backup.sh  original-ks.cfg
+]#./backup.sh 
+압축파일만든다음에 백업디렉토리에 옮긴다
+
+
+
+
+
+
