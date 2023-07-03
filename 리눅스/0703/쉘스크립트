@@ -76,3 +76,40 @@ echo  `expr  $a + $b`
 echo  `expr  $a - $b`
 
 
+
+[root@localhost ~]# ./test3.sh
+-bash: ./test3.sh: Permission denied
+[root@localhost ~]# chmod 777 test3.sh
+[root@localhost ~]# vi test3.sh
+[root@localhost ~]# ./test3.sh
+27
+10
+27+10
+27+10
+[root@localhost ~]# 
+
+------------
+eng=90
+kor=80
+sum=`expr $eng + $kor`
+avg=`expr $sum / 2`
+echo eng=$eng
+echo kor=$kor
+echo sum=$sum
+echo avg=$avg
+[root@localhost ~]# chmod 777 test4.sh
+[root@localhost ~]# ./test4.sh
+eng=90
+kor=80
+sum=170
+avg=85
+-----------------------
+eng=$1
+kor=$2
+[root@localhost ~]# ./test4.sh 100($1) 90($2)
+eng=100
+kor=90
+sum=190
+avg=95
+
+
