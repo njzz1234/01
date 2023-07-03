@@ -1,0 +1,5 @@
+[test@localhost ~]$ su - 
+Password: 
+Last login: Sun Jul  2 18:10:46 PDT 2023 on pts/0
+[root@localhost ~]# 
+
