@@ -124,7 +124,25 @@ NAVER.COM(디자인/개발자)
 
 1. 개발자가 접근 (파일업로드)->FTP도구를이용하여올림->FTP 서버프로그램 
 2. 일반사용자가 접근(홈페이지이용)->브라우저->WEB(서버)프로그램
-3. 서버관리자가 접근(리눅스명령어) ->SSH(서버)프로그램
+3. 서버관리자가 접근(리눅스명령어) ->ssh(리눅스service sshd resrart,putty) ->SSH(서버)프로그램
+
+============================================
+[SSH서버/접근]
+]#service sshd restart
+]#service sshd stop
+
+
+https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+putty.exe윈도우 다운 
+리눅스에서 ifconfig
+inet 아이피주소 복사 -open-accept-test-1234
+
+--------------------
+클라이언트(윈도)
+1. putty
+
+
+
 
 
 
