@@ -130,4 +130,5 @@ now1 : 20230702
 %nowDate
 ------------------------------------
 
+[root@localhost ~]# tar cvfz home_$(date + %y%m%d_%h%m%s).tar.gz /home
 
