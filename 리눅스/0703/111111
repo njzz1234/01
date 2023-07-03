@@ -8,3 +8,22 @@ Last login: Sun Jul  2 18:10:46 PDT 2023 on pts/0
 
 [root@localhost ~]# crontab -l
 ls /tmp
+--------------------
+
+[root@localhost ~]# tar cvfz
+tar: Old option `f' requires an argument.
+Try `tar --help' or `tar --usage' for more information.
+[root@localhost ~]# tar cvfz home1.tar.gz test
+tar: test: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+[root@localhost ~]# ls
+anaconda-ks.cfg  home1.tar.gz  original-ks.cfg
+[root@localhost ~]# mkdir backup
+[root@localhost ~]# mv home1.tar.gz backup
+[root@localhost ~]# cd backup
+[root@localhost backup]# ls
+home1.tar.gz
+[root@localhost backup]# tar xvfz home1.tar.gz
+[root@localhost backup]# ls
+home1.tar.gz
+[root@localhost backup]# 
