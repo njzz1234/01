@@ -7,3 +7,4 @@ Last login: Sun Jul  2 18:10:46 PDT 2023 on pts/0
 :wq  라고적기 (저장)
 
 [root@localhost ~]# crontab -l
+ls /tmp
