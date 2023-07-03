@@ -132,3 +132,6 @@ now1 : 20230702
 
 [root@localhost ~]# tar cvfz home_$(date + %y%m%d_%h%m%s).tar.gz /home
 
+crontab -e
+35 14 * * * tar cvfz home_$(date +%Y%M%D_%H%M%S).tar.gz /home
+
