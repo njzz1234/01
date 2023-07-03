@@ -1,0 +1,41 @@
+anaconda-ks.cfg  backup  backup.sh  original-ks.cfg  sample.tar.gz
+[root@localhost ~]# !/bin/sh
+-bash: !/bin/sh: event not found
+[root@localhost ~]# cd
+[root@localhost ~]# vi test.sh
+[root@localhost ~]# chmod777 test1.sh
+bash: chmod777: command not found...
+[root@localhost ~]# chmod 777 test1.sh
+chmod: cannot access ‘test1.sh’: No such file or directory
+[root@localhost ~]# chmod 777 test.sh
+[root@localhost ~]# vi test2.sh
+[root@localhost ~]# ls -al test.sh
+-rwxrwxrwx. 1 root root 23 Jul  2 20:25 test.sh
+[root@localhost ~]# vi test2.sh
+[root@localhost ~]# ./test.sh
+Sun Jul  2 20:31:50 PDT 2023
+/root
+anaconda-ks.cfg  backup.sh	  sample.tar.gz  test.sh
+backup		 original-ks.cfg  test2.sh
+[root@localhost ~]# linux
+bash: linux: command not found...
+[root@localhost ~]# !/bin/sh
+-bash: !/bin/sh: event not found
+[root@localhost ~]# vi test2.sh
+[root@localhost ~]# /test2.sh
+-bash: /test2.sh: No such file or directory
+[root@localhost ~]# vi test2.sh
+[root@localhost ~]# /test2.sh
+-bash: /test2.sh: No such file or directory
+[root@localhost ~]# ./test2.sh
+-bash: ./test2.sh: Permission denied
+[root@localhost ~]# chmod 777 test2.sh
+[root@localhost ~]# ./test2.sh
+linux
+java
+oracle
+linux       100
+java        100
+oracle 100
+seoul
+[root@localhost ~]# 
