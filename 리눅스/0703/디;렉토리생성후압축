@@ -1,0 +1,38 @@
+[root@localhost ~]# mkdir /tmp/sample
+[root@localhost ~]# ls /tmp
+crontab.s9XCP6
+crontab.SacnUt
+hsperfdata_root
+ks-script-pJfYT6
+ks-script-so9W9c
+sample
+ssh-ia4hI7ra2Gtt
+systemd-private-14ad2af2d61b4125b269788225e4cac5-bolt.service-06Ey70
+systemd-private-14ad2af2d61b4125b269788225e4cac5-chronyd.service-R7UeKF
+systemd-private-14ad2af2d61b4125b269788225e4cac5-colord.service-o4qpRD
+systemd-private-14ad2af2d61b4125b269788225e4cac5-cups.service-zK2W55
+systemd-private-14ad2af2d61b4125b269788225e4cac5-fprintd.service-wvxax4
+systemd-private-14ad2af2d61b4125b269788225e4cac5-fwupd.service-KJLtqX
+systemd-private-14ad2af2d61b4125b269788225e4cac5-rtkit-daemon.service-teQ295
+systemd-private-14ad2af2d61b4125b269788225e4cac5-systemd-hostnamed.service-V3JBhK
+tracker-extract-files.1000
+vmware-root_580-2730496794
+vmware-root_586-2696942867
+vmware-root_600-2722697857
+vmware-root_605-3980232922
+yum.log
+yum_save_tx.2023-07-02.17-59.hTLleZ.yumtx
+[root@localhost ~]# cp /etc/host /tmp/sample/hosts.txt
+cp: cannot stat ‘/etc/host’: No such file or directory
+[root@localhost ~]# cp /etc/hosts  /tmp/sample/hosts.txt
+[root@localhost ~]# cp /etc/resolv.conf  /tmp/sample/resolv.txt
+[root@localhost ~]# ls /tmp/sample
+hosts.txt  resolv.txt
+[root@localhost ~]# tar cvfz sample.tar.gz /tmp/sample
+tar: Removing leading `/' from member names
+/tmp/sample/
+/tmp/sample/hosts.txt
+/tmp/sample/resolv.txt
+[root@localhost ~]# ls
+anaconda-ks.cfg  backup  backup.sh  original-ks.cfg  sample.tar.gz
+[root@localhost ~]# 
