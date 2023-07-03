@@ -65,7 +65,14 @@ seoul
 welcome to seoul
 welcome to $city
 welcome to seoul
+특수문자가 나왓다안나왓다
 
+echo  $a+$b                     #연산 안됨 - 일반문자 처리
 
+echo  `expr  $a+$b`       #연산 안됨 - 일반문자 처리
+      `<<< ㅇ키보드왼쪽 탭 위에꺼
+echo  `expr  $a + $b`
+          스페이스 바로 a + b 떨어트려야작동
+echo  `expr  $a - $b`
 
 
