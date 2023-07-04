@@ -10,7 +10,7 @@ zone "linux.com" {
            file "linux.zone";
           allow-update{ none; };
 };
-[root@localhost ~]# cd /var/named
+[root@localhost ~]# cd /var/named ㅡㅡ네임드접속
 [root@localhost named]# ls
 chroot  chroot_sdb  data  dynamic  dyndb-ldap  named.ca  named.empty  named.localhost  named.loopback  slaves
 [root@localhost named]# cp named.localhost
