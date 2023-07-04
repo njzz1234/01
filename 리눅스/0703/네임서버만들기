@@ -1,0 +1,71 @@
+1. #vi /etc/named.conf
+
+(1) linsten-on port 53 { any; }
+
+(2) allow-query { any; }
+
+(3) zone 영역설정 -> Foward 설정 (정방향 설정) / Reverse 설정 (역방향 설정)
+
+zone 어쩌구 in 밑에다가 적기 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+zone "linux.com" {
+
+           type master;
+
+           file "linux.zone";
+
+           allow-update{ none; };
+
+};
+[root@localhost ~]# cd /var/named
+[root@localhost named]# ls
+chroot  chroot_sdb  data  dynamic  dyndb-ldap  named.ca  named.empty  named.localhost  named.loopback  slaves
+[root@localhost named]# cp named.localhost
+cp: missing destination file operand after ‘named.localhost’
+Try 'cp --help' for more information.
+[root@localhost named]# cp named.localhost yahoo.zone
+[root@localhost named]# vi yahoo.zone
+[root@localhost named]# ip 주소를 내껄로
+
+
+
+ 
+
+3. zone 파일설정 -> #vi /var/named/linux.zone
+
+ 
+
+@  IN  SOA   @    linux.com. (
+
+                                   201653101 ; sec
+
+                                   10800 ; 3H reflush
+
+                                   3600 ; 1H retry
+
+                                   43200 ;
+
+                                   86400 )
+
+           IN   A   192.168.1.15
+
+           IN   MX   10   mail.linux.com.
+
+ns   A  192.168.1.15
+
+www  CNAME  ns
+
+ 
+
+4. zone 파일 소유권설정
+
+#chown root.named /var/named/linux.zone
+
+ 
+
+5. #vi /etc/resolv.conf 에 네임서버 아이피 설정
+
+6. #service named restart
+
+7. #nslookup linux.com
