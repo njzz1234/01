@@ -1,22 +1,14 @@
+[[1]]환경설정 변경
 1. #vi /etc/named.conf
-
 (1) linsten-on port 53 { any; }
-
 (2) allow-query { any; }
-
 (3) zone 영역설정 -> Foward 설정 (정방향 설정) / Reverse 설정 (역방향 설정)
-
 zone 어쩌구 in 밑에다가 적기 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
 zone "linux.com" {
-
            type master;
-
            file "linux.zone";
-
-           allow-update{ none; };
-
+          allow-update{ none; };
 };
 [root@localhost ~]# cd /var/named
 [root@localhost named]# ls
@@ -27,6 +19,43 @@ Try 'cp --help' for more information.
 [root@localhost named]# cp named.localhost yahoo.zone
 [root@localhost named]# vi yahoo.zone
 [root@localhost named]# ip 주소를 내껄로
+
+[[2]]
+yahoo.zone 이라는 영역파일 생성
+]#cd /var/named 
+#cp named.localhost yahoo.zone
+
+[[3]] 호스트파일에서 필요없는 내용삭제
+#vi /etc/hosts
+
+[[4]] 내가사용하는 네임서버 주소를 바꿈
+테스트로 해놓은 yahoo설정은 지움
+#vi /etc/resolv.conf
+
+5. zone 파일 소유권 설정
+# chown root.named /var/named/yahoo.zone
+
+{서버재가종}
+# service named restart
+
+[확인]
+#ping yahoo.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
