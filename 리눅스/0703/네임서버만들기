@@ -42,6 +42,51 @@ yahoo.zone 이라는 영역파일 생성
 #ping yahoo.com
 
 
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+[test@localhost ~]$ su -
+Password: 
+Last login: Mon Jul  3 23:47:05 PDT 2023 on pts/4
+[root@localhost ~]# cd /var/named
+[root@localhost named]# ls
+chroot  chroot_sdb  data  dynamic  dyndb-ldap  named.ca  named.empty  named.localhost  named.loopback  slaves  yahoo.zone
+[root@localhost named]# named.localhost
+bash: named.localhost: command not found...
+[root@localhost named]# vi /etc/named.conf
+[root@localhost named]# vi /etc/named.conf
+[root@localhost named]# pwd
+/var/named
+[root@localhost named]# cd /var/named
+[root@localhost named]# ls
+chroot  chroot_sdb  data  dynamic  dyndb-ldap  named.ca  named.empty  named.localhost  named.loopback  slaves  yahoo.zone
+[root@localhost named]# cat named.localhost
+$TTL 1D
+@	IN SOA	@ rname.invalid. (
+					0	; serial
+					1D	; refresh
+					1H	; retry
+					1W	; expire
+					3H )	; minimum
+	NS	@
+	A	127.0.0.1
+	AAAA	::1
+[root@localhost named]# vi named.localhost
+[root@localhost named]# cat named.localhost
+$TTL 1D
+@	IN SOA	@ rname.invalid. (
+					0	; serial
+					1D	; refresh
+					1H	; retry
+					1W	; expire
+					3H )	; minimum
+	NS	@
+	A	192.168.40.128
+	AAAA	::1
+[root@localhost named]# cp named.localhost yahoo.zone
+cp: overwrite ‘yahoo.zone’? yes
+[root@localhost named]# chown root.named /var/named/yahoo.zone
+[root@localhost named]# ^C
+[root@localhost named]# vi yahoo.zone
+
 
 
 
@@ -60,7 +105,7 @@ yahoo.zone 이라는 영역파일 생성
 
 
  
-
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 3. zone 파일설정 -> #vi /var/named/linux.zone
 
  
