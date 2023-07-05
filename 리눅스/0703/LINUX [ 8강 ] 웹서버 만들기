@@ -1,0 +1,73 @@
+ 아파치 웹 서버 구축]
+
+ 
+
+0. 방화벽 설정
+
+]#firewall-cmd  --permanent  --add-service=http
+
+]#firewall-cmd  --permanent  --add-service=https
+
+]#firewall-cmd  --reload
+
+ 
+
+]#vi /etc/selinux/config
+
+SELinux=disabled   # 수정
+
+ 
+
+ 
+
+1. 웹 서버 프로그램 설치
+
+]#yum  -y  install httpd*
+
+]#yum  list  installed  |grep  httpd    #  rpm -qa |grep httpd
+
+ 
+
+2. 환경설정파일 - httpd.conf
+
+]#cd /etc/httpd/conf
+
+]#vi  httpd.conf
+
+ 
+
+<Directory  />
+
+    AllowOverride  none
+
+    #Require  all  denied (주석처리함)
+
+    Require  all  granted
+
+</Directory>
+
+ 
+
+3. 환경설정파일 - vhost.conf
+
+]#vi  /etc/httpd/conf.d/vHost.conf
+
+ 
+
+NameVirtualHost  *:80
+
+<VirtualHost  *:80>
+
+      ServerName  linux.com
+
+      ServerAlias   www.linux.com
+
+      DocumentRoot  /home/linux/html
+
+</VirtualHost>
+
+ 
+
+4. 서버 가동
+
+]#service httpd restart
