@@ -47,6 +47,51 @@ wan 라우터 장비 기준 외부인터넷
 4. ftp서버 활성화
 5. 네임서버를 세팅 활성화
 
+계정생성
+]#useradd naver
+]#passwd naver  비번 naver123
+
+편의디렉토리생성
+]#cd /home/naver
+]#mkdir html
+]#mkdir backup
+#ls -l
+
+소유주변경
+]#chown naver.naver *
+]#ls -l
+
+허가권변경
+]#cd /home
+]#ll
+]#chmod 711 naver   -> -rwx--x--x
+
+ssh서버활성화
+]#service sshd restart
+
+ftp서버 활성화
+]#service vsftpd restart
+
+네임서버 설정
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
