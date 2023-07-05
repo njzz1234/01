@@ -1,0 +1,59 @@
+1. linux 계정의 암호를 재설정
+]$ passwd 
+
+2. root에서 linux 계정의 암호를 재설정
+]$ passwd linux
+
+ctrl c 종료
+fg 1 ,2,3,4, 백그라운드 작업
+jobs 백그라운드작업뭐하고있나
+rm -f .@@@@ 삭제
+
+[스왑파일]
+텍스트파일의 비정상적인 종료로 생기는 파일
+스왑파일은 정상작업을 방해, 반드시 삭제해야함
+ls a
+rm -f .@@@.swap 삭제
+
+]#ping yahoo.com
+ :
+ :
+ ctrl c
+]#service named restart 
+]# vi /etc/resolv.conf
+
+내ip
+네임서버ip
+게이트웨이 ip
+서브넷마스크ip
+네트워크연결 - 이더넷 - 인터넷프로토콜 4 속성 - 
+
+lan 라우터 장비 기준 내부인터넷
+wan 라우터 장비 기준 외부인터넷
+
+
+개인 -> 브라우자 : yahoo.com:8080 -> [웹서버] 8080 or 80 ->웹서버서비스 -> 알드라이브:yahoo.com:21 --> [서버]21-> ftp 서비스->푸티:yahoo.com:22->[서버]22->ssh서비스
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
