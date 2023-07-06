@@ -4,79 +4,86 @@ rpm -qa |grep httpd
 
 
 
-
-
-
 [ 아파치 웹 서버 구축]
-
  
-
 0. 방화벽 설정
-
 ]#firewall-cmd  --permanent  --add-service=http
-
 ]#firewall-cmd  --permanent  --add-service=https
-
 ]#firewall-cmd  --reload
-
  
-
 ]#vi /etc/selinux/config
-
 SELinux=disabled   # 수정
-
  
-
  
-
 1. 웹 서버 프로그램 설치
-
 ]#yum  -y  install httpd*
-
 ]#yum  list  installed  |grep  httpd    #  rpm -qa |grep httpd
-
  
-
 2. 환경설정파일 - httpd.conf
-
 ]#cd /etc/httpd/conf
-
 ]#vi  httpd.conf
-
  
-
 <Directory  />
-
     AllowOverride  none
-
     #Require  all  denied (주석처리함)
-
     Require  all  granted
-
 </Directory>
-
  ㅁㅁㅁ
-
 3. 환경설정파일 - vhost.conf
-
 ]#vi  /etc/httpd/conf.d/vHost.conf
-
  
-
 NameVirtualHost  *:80
-
 <VirtualHost  *:80>
-
       ServerName  linux.com
-
       ServerAlias   www.linux.com
-
       DocumentRoot  /home/linux/html
-
 </VirtualHost>
-
  
-
 4. 서버 가동
-
 ]#service httpd restart
+
+웹서버1111
+{ naver.com }
+
+------------------------------------------------------
+1. 접근계정 생성
+2. 계정의 홈 디렉토리에 필요 디렉토리를 세팅
+3. SSH 서버 활성화
+4. FTP 서버를 활성화
+5. 네임 서버를 세팅/활성화
+------------------------------------------------------
+{계정생성}
+useradd naver
+passwd naver
+{필요 디렉토리 생성}
+cd /home/naver
+mkdir html
+mkdir backup
+ls -l
+{필요 디렉토리 소유주 변경}
+chown naver.naver *
+{naver 허가권 변경}
+cd /home
+ll
+chmod 711 naver
+{ ssh 서버 활성화}
+service sshd restart
+{FTP 서버 활성화}
+service vsftpd restart
+
+{name 서버 설정}
+vi /etc/named.conf
+zone "naver.com" {
+      type master;
+      file "naver.zone";
+};      ->naver.com의 zone영역설정
+
+cd /var/named
+cp named.localhost naver.zone
+vi naver.zone
+IN SOA @ naver.com.
+A :myIP 192.168.79.129
+chown root.named naver.zone
+{name서버 가동}
+service named restart
+------------------------------------------------------
