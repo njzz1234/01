@@ -1,0 +1,19 @@
+create table pollmain (
+ code number not null primary key,
+ title varchar2(1000) not null,
+ sdate date not null,
+ edate date not null,
+ use char(1) default 'Y',
+ rdate TIMESTAMP 
+);
+
+create table pollsub (
+ code number not null primary key,
+ item varchar2(300),
+ vote number default 0
+);
+
+create sequence pollmain_seq
+start with 1001
+increment by 1
+maxvalue 9999;
