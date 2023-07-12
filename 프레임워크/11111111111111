@@ -1,1 +1,13 @@
 https://www.egovframe.go.kr/home/sub.do?menuNo=94
+
+
+pom.xml에
+150줄에
+
+                <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-war-plugin</artifactId>
+              <version>3.3.2</version>
+            </plugin>
+
+
