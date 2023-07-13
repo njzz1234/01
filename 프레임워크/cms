@@ -27,3 +27,5 @@ cmsWrite.jsp cmsList.jsp cmsModify.jsp
 Sql목록
 1.CmsSQL.xml
 2.sql -map-config.xml (sql맵등록)
+
+http://localhost:8080/mywork1/cmsWrite.do
