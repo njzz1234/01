@@ -5,3 +5,23 @@ cms_yn char(1) default 'Y'
 );
 
 
+등록화면 cmsWrite.do
+등록처리 cmsWriteSave
+목록화면 cmsList
+수정화면 cmsModify
+수정처리 cmsModifySave
+삭제처리 cmsDelete
+
+화면목록
+cmsWrite cmsList cmsModify.jsp
+
+서비스파일목록
+1.CmsVO.java
+2.CmsController.java
+3.CmsService.java
+4.CmsServiceImpl.java
+5.CmsDAO.java
+
+Sql목록
+1.CmsSQL.xml
+2.sql -map-config.xml (sql맵등록)
