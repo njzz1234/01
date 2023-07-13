@@ -1,0 +1,7 @@
+create table cms (
+cms_no number primary key,
+cms_nm varchar2(50) not null,
+cms_yn char(1) default 'Y'
+);
+
+
