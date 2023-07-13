@@ -31,8 +31,6 @@ cms_nm varchar2(50) not null,
 cms_yn char(1) default 'Y'
 );
 
-코드화면
-코드
 
 등록화면 cmsWrite.do
 등록처리 cmsWriteSave
