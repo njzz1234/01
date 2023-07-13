@@ -15,7 +15,7 @@ cms_yn char(1) default 'Y'
 삭제처리 cmsDelete
 
 화면목록
-cmsWrite cmsList cmsModify.jsp
+cmsWrite.jsp cmsList.jsp cmsModify.jsp
 
 서비스파일목록
 1.CmsVO.java
