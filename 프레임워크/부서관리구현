@@ -1,0 +1,33 @@
+[ 부서관리 ]
+
+ 
+
+{ 프로그램 목록}
+1. deptWrite.do
+2. deptWriteSave.do
+3. deptList.do
+4. deptModify.do
+5. deptModifySave.do
+6. deptDelete.do
+
+{ 화면파일 목록 }
+1. dept/deptWrite.jsp
+
+{ 자바파일 목록}
+1. DeptController.java      -- 웹 주소 매핑 파일
+2. DeptVO.java                  -- DB로 송신(수신) 되는 변수 세팅 파일 ( GET/SET 세팅 )
+3. DeptService.java          -- Interface 파일 (DB연동관련 메소드의 명세화)
+4. DeptServiceImpl.java  -- Interface 파일에서 명세처리된 목록을 구현하는 파일
+5. DeptDAO.java              -- SQL.xml과 연결되는 파일
+6. DeptSQL.xml               -- SQL 등록 파일
+7. sql-map-config.xml    -- SQL.xml 파일 생성 시 등록하는 파일
+
+{ 화면파일 경로 }
+exampl - sample
+             - dept  - deptWrite.jsp
+
+                         - deptList.jsp
+
+                         - deptModify.jsp
+{ 확인 }
+localhost:8080/mywork1/deptWrite.do
