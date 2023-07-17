@@ -9,9 +9,45 @@ dispatcher-servlet.xml
 
 (2)작업패키지추가등록
 >> egovframework.example.sample.web
+
 egov.mywork1.web
+1.BoardController.java
+
 egov.mywork1.service
+2.BoardVO.java
+3.BoardService.java - interface
+
 egov.mywork1.service.impl
+4.BoardServiceImpl.java
+5.BoardDAO.java
 
 
 아래 톰캣서버 더블클릭 - module - edit  / 남기고지우기
+
+
+{ajax}
+write.do->writesave.do
+write.jsp->writesave.jsp (메시지)
+
+게시판
+boardwrite.do
+boardwritesave.do
+boardlist.do
+boarddetail.do
+boardmodify.do
+baordmodifysave.do
+boardpass.do
+boarddelete.do
+
+화면목록
+boardwrite.jsp
+
+
+
+
+
+
+
+
+
+
