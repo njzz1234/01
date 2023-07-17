@@ -4,3 +4,11 @@ dispatcher-servlet.xml
 49번쨰줄
 
 (1) jsp파일 작업 홈 디렉토리 변경
+
+>> egovframework.example.sample.web
+egov.mywork1.web
+egov.mywork1.service
+egov.mywork1.service.impl
+
+
+
