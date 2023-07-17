@@ -1,10 +1,13 @@
 https://github.com/malvin222/hi
 
 dispatcher-servlet.xml
-49번쨰줄
+49번쨰줄 지우고
+10번쨰줄 egov~~~,egov
+
 
 (1) jsp파일 작업 홈 디렉토리 변경
 
+(2)작업패키지추가등록
 >> egovframework.example.sample.web
 egov.mywork1.web
 egov.mywork1.service
