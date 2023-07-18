@@ -19,6 +19,8 @@ egov.mywork1.service
 egov.mywork1.service.impl
 4.BoardServiceImpl.java
 5.BoardDAO.java
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+6.context-common.xml 
 
 
 아래 톰캣서버 더블클릭 - module - edit  / 남기고지우기
