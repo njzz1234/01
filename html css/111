@@ -1,10 +1,12 @@
 main.do -> main.jsp
 index.do -> index.jsp
 
-webapp - board
+webapp  - admin - adminNoticeList.jsp
+      - board   - noticeList.jsp
       - include - header.jsp
                 - footer.jsp
-
+      -main - main.jsp
+      -index.jsp
 
 
 create table noticeboard (
