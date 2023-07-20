@@ -1,2 +1,8 @@
 main.do -> main.jsp
 index.do -> index.jsp
+
+webapp - board
+      - include - header.jsp
+                - footer.jsp
+
+
