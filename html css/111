@@ -6,3 +6,25 @@ webapp - board
                 - footer.jsp
 
 
+
+create table noticeboard (
+unq number primary key,
+title varchar2(100) not null,
+pass varchar2(100) not null,
+name varchar2(20) default '관리자',
+content varchar2(4000),
+hits number default '0',
+emps char(1) default 'N',
+rdate timestamp 
+);
+
+create sequence noticeboard_seq
+start with 1
+increment by 1
+maxvalue 99999;
+
+
+1. 보드컨트롤러에
+리퀘스트매핑
+
+
