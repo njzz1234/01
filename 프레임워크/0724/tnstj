@@ -1,0 +1,21 @@
+1.service
+2. 
+
+
+
+(2)BoardController.java
+ /noticeList.do
+ /noticeDetail.do
+
+2. AdminService.java
+{추가}
+List<?> selectNoticeList(DefaultVO vo) throws Exception;
+
+BoardService.java
+List<?> selectNoitceList(DefaultVO vo) throws Exception;
+
+
+3. NoticeVO.java
+4.AdminServcieImpl.java
+5.AdminDAO.java
+6. AdminSQL.xml
