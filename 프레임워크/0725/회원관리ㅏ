@@ -1,9 +1,9 @@
-1.mbrConditions.do
-2.mbrJoinWrite.do
-3.mbrJoinSave.do
-4.mbrUserIdCheck.do
-5.mbrNickNmCheck.do
-6.loginWrite.do
-7.loginSession.do
-8.mbrModify.do
-9.mbrModifySave.do
+1.mbrConditions.do    회원약관화면
+2.mbrJoinWrite.do      회원등록화면
+3.mbrJoinSave.do      회원등록처리
+4.mbrUserIdCheck.do    아이디중복체크
+5.mbrNickNmCheck.do    별칭중복체크
+6.loginWrite.do        로그인화면
+7.loginSession.do      로그인처리
+8.mbrModify.do        회원정보수정화면
+9.mbrModifySave.do    회원정보수정처리
