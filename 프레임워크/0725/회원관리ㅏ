@@ -4,4 +4,6 @@
 4.mbrUserIdCheck.do
 5.mbrNickNmCheck.do
 6.loginWrite.do
-7.
+7.loginSession.do
+8.mbrModify.do
+9.mbrModifySave.do
