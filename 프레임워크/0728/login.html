@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=10,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta content="width=device-width" name="viewport">
+    <title>로그인 | 제주렌트카</title>
+    <link href="./css/default.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <script>
+        function showPopup() {
+            var sw = screen.width;
+            var sh = screen.height;
+            var cw = 600;
+            var ch = 400;
+            var top = Math.ceil((sh / 2) - (ch / 2));
+            var left = Math.ceil((sw / 2) - (cw / 2));
+            window.open("login_lost.html", "찾기",
+                "status=no, height=" + ch + ", width=" + cw + ", top=" + top + ", left=" + left);
+        }
+    </script>
+</head>
+<body>
+<div class="mbskin" id="mb_login">
+    <h1>로그인</h1>
+
+    <form action="#" method="post" name="flogin">
+        <fieldset id="login_fs">
+            <legend>회원로그인</legend>
+            <label class="login_id" for="login_id">회원아이디 필수</label>
+            <input autofocus class="frm_input required" id="login_id" maxLength="20" name="mb_id" required size="20"
+                   type="text">
+            <label class="login_pw" for="login_pw">비밀번호</label>
+            <input class="frm_input required" id="login_pw" maxLength="20" name="mb_password" required size="20"
+                   type="password">
+            <input class="btn_submit" type="submit" value="로그인">
+            <input id="login_auto_login" name="auto_login" type="checkbox">
+            <label for="login_auto_login">자동로그인</label>
+        </fieldset>
+
+        <aside id="login_info">
+            <h2>회원로그인 안내</h2>
+            <p>
+                회원아이디 및 비밀번호가 기억 안나실 때는 아이디/비밀번호 찾기를 이용하십시오.<br>
+                아직 회원이 아니시라면 회원으로 가입 후 이용해 주십시오.
+            </p>
+            <div>
+                <a class="btn02" onclick="showPopup(); return false" target="_blank">아이디 비밀번호 찾기</a>
+                <a class="btn01" href="register.html">회원 가입</a>
+            </div>
+        </aside>
+    </form>
+    <div style="text-align:center">
+        <a href="main.html">메인으로 돌아가기</a>
+    </div>
+</div>
+</body>
+</html>
