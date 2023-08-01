@@ -1,3 +1,55 @@
+create table preventImg (
+    no number,
+    imgname varchar2(50),
+ );
+ insert into preventImg values('1','053986.jpg');
+ insert into preventImg values('2','185641.jpg');
+ insert into preventImg values('3','295242.jpg');
+ insert into preventImg values('4','302765.jpg');
+ insert into preventImg values('5','361786.jpg');
+ insert into preventImg values('6','509939.jpg');
+ insert into preventImg values('7','546339.jpg');
+ insert into preventImg values('8','774043.jpg');
+ insert into preventImg values('9','821844.jpg');
+ insert into preventImg values('10','906046.jpg');
+
+ 
+
+ 
+
+create table noticeboard (
+unq number primary key,
+title varchar2(100) not null,
+pass varchar2(100) not null,
+name varchar2(20) default '관리자',
+content varchar2(4000),
+hits number default '0',
+emps char(1) default 'N',
+rdate timestamp
+);
+
+create sequence noticeboard_seq
+start with 1
+increment by 1
+maxvalue 99999;
+
+ 
+
+ 
+
+create table memberinfo (
+userid varchar2(50) primary key,
+pass varchar2(100) not null,
+name varchar2(50) not null,
+nickname varchar2(50) not null,
+email varchar2(100),
+phone varchar2(50),
+mobile varchar2(50) not null,
+mailchk char(1) default 'Y',
+smschk  char(1) default 'Y',
+rdate timestamp,
+udate timestamp );
+
 1.특정폴더에 이미지저장10개
 2. 관련테이블생성 - 순번1~10, 이미지이름
 3. 초기화면출력 
